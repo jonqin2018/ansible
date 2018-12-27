@@ -39,11 +39,3 @@
       debug:
        var: reload_result
 
-
-    - name: Wait for the reboot to complete if there was a change. 
-
-      wait_for_connection: 
-
-
-      when: task_result is changed 
-   
