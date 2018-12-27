@@ -1,0 +1,19 @@
+---
+
+- name: get facts 
+  hosts: ios
+  connection: network_cli 
+  gather_facts: false  
+  tasks: 
+    - ios_facts:
+       gather_subset: config
+ 
+      register: result
+
+    - name: configure interface
+      ios_interface:
+        name: Ethernet0/2
+        description: test-interface
+    - name: show result
+      debug: 
+        var: result 
