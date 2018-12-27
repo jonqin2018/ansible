@@ -1,0 +1,49 @@
+---
+
+-  name: reboot test
+   hosts: ios
+   connection: network_cli 
+   gather_facts: false
+   
+   tasks: 
+    - name: sh version
+      ios_command: 
+       commands:
+       - show version
+      
+    - name: configure username 
+      ios_config:
+       lines:
+       - username test pass test
+       - config-register 0x2102
+      register: task_result 
+
+    - name: show task_result
+      debug:
+        var: task_result
+
+    - name: Reboot immediately if there was a change. 
+      ios_command:
+        commands: 
+         - "reload \ry\r"
+      register: reload_result
+
+    - name: WAIT FOR ROUTER TO RETURN
+      wait_for:
+       host: "10.1.2.1"
+       port: 22
+       delay: 20 
+      delegate_to: localhost
+
+    - name: show reload_result
+      debug:
+       var: reload_result
+
+
+    - name: Wait for the reboot to complete if there was a change. 
+
+      wait_for_connection: 
+
+
+      when: task_result is changed 
+   
