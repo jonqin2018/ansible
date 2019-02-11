@@ -30,7 +30,7 @@
 
     - name: WAIT FOR ROUTER TO RETURN
       wait_for:
-       host: "10.1.2.1"
+       host: "10.1.1.2"
        port: 22
        delay: 20 
       delegate_to: localhost
