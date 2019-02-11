@@ -1,7 +1,7 @@
 ---
 
 -  name: reboot test
-   hosts: ios
+   hosts: iou1 
    connection: network_cli 
    gather_facts: false
    
