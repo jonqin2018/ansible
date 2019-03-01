@@ -1,0 +1,9 @@
+ansible_connection: network_cli 
+
+ansible_network_os: ios 
+
+ansible_user: admin 
+
+ansible_ssh_pass: admin 
+
+#ansible_paramiko_user: admin

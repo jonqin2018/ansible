@@ -1,9 +1,9 @@
 ---
 
 -  name: reboot test
-   hosts: iou1 
-   connection: network_cli 
-   gather_facts: false
+   hosts: iou
+   connection: paramiko 
+   gather_facts: true
    
    tasks: 
     - name: sh version

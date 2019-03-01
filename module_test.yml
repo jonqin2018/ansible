@@ -1,0 +1,18 @@
+---
+
+-  name: reboot test
+   hosts: iou
+   connection: local 
+  # vars:
+  #   ansible_user: admin
+  #   ansible_ssh_pass: admin
+   gather_facts: true 
+   
+   tasks: 
+    - name: sh version
+      cli_command:  
+       command: show version
+      register: show_ver
+    - name: show reload_result
+      debug:
+       var: show_ver

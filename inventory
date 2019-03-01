@@ -2,11 +2,8 @@
 10.1.2.1
 
 [iou]
-iou9
+iou1
 
 [centos]
 127.0.0.1
 
-[all:vars]
-un=admin
-pass=admin
