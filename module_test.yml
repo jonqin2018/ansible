@@ -2,17 +2,25 @@
 
 -  name: reboot test
    hosts: iou
-   connection: local 
-  # vars:
-  #   ansible_user: admin
-  #   ansible_ssh_pass: admin
+   connection: network_cli 
    gather_facts: true 
    
    tasks: 
+
     - name: sh version
-      cli_command:  
-       command: show version
-      register: show_ver
-    - name: show reload_result
+      cli_command:
+       command: show clock 
+      register: show_clock
+   
+    - name: show clock result
+      debug: 
+       var: show_clock 
+
+    - name: show ip int bri   
+      cli_command:
+       command: show ip int bri
+      register: show_ip_int
+
+    - name: show ip int bri result 
       debug:
-       var: show_ver
+       var: show_ip_int
