@@ -7,20 +7,23 @@
    
    tasks: 
 
-    - name: sh version
+    - name: show clock, register result to show_clock var
       cli_command:
        command: show clock 
       register: show_clock
    
-    - name: show clock result
+    - set_fact:
+       fact: "{{ show_clock.stdout | regex_search('(up)') }}"
+ 
+    - name: dubug clock result
       debug: 
-       var: show_clock 
+       var: fact 
 
-    - name: show ip int bri   
+    - name: show version, register result to show_verison var   
       cli_command:
-       command: show ip int bri
-      register: show_ip_int
+       command: show version
+      register: show_version
 
-    - name: show ip int bri result 
+    - name: debug show_version result
       debug:
-       var: show_ip_int
+       var: show_version
