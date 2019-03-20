@@ -7,3 +7,5 @@ iou1
 [centos]
 127.0.0.1
 
+[routers]
+ios-xe-mgmt.cisco.com
