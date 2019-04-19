@@ -1,0 +1,17 @@
+---
+  - name: lab iou1 lab yml
+    hosts: all
+    connection: network_cli
+    vars:
+     ansible_user: admin
+     ansible_password: admin
+     ansible_network_os: ios
+
+    tasks:
+      - name: show ver
+        cli_command: 
+             command: show ver
+        register: show_ver
+
+      - debug: var=show_ver.stdout_lines
+

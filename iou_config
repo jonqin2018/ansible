@@ -1,0 +1,14 @@
+show ver
+show ip int bri
+conf t
+int lo 0 
+ip add 1.1.1.1 255.255.255.255
+end
+conf t
+config 0x2102
+end
+wr mem 
+reload
+yes
+"\n\r"
+

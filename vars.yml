@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  vars:
+   var1: global vars in playbook
+  tasks:
+   - debug: msg="Hello {{ your_name }}, this is {{ var1}} "
+     vars:
+      your_name: username
+

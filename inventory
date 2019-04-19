@@ -1,8 +1,8 @@
 [ios]
-10.1.2.1
+10.1.0.1 ansible_user=admin ansible_password=admin ansible_network_os=ios
 
 [iou]
-iou1
+10.1.0.1 ansible_user=admin ansible_password=admin ansible_network_os=ios
 
 [centos]
 127.0.0.1
