@@ -2,6 +2,7 @@
   - name: lab iou1 lab yml
     hosts: all
     connection: network_cli
+
     vars:
      ansible_user: admin
      ansible_password: admin
