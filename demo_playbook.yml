@@ -1,0 +1,24 @@
+---
+ - hosts: all 
+   gather_facts: no
+   connection: network_cli 
+   vars:
+       ansible_user: admin
+       ansible_password: admin
+       ansible_network_os: ios
+
+   tasks:
+      - name: show ver
+        cli_command: 
+          command:  "{{ item }}"
+        with_items: 
+              - show ver
+              - conf t
+              - int lo3
+              - ip address 3.3.3.3 255.255.255.255
+              - end
+              - wr 
+
+        register: output
+
+      - debug: var=output

@@ -1,0 +1,11 @@
+---
+- name:  example yaml playbook
+  hosts:  localhost
+  
+  vars_files:
+        - var.yml  
+  tasks:
+    - name: debug 
+      debug: 
+        msg: "this is var1 {{ var1 }}, this is var2: {{ var2 }} "
+
