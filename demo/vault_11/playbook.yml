@@ -1,0 +1,8 @@
+---
+
+- hosts: localhost 
+  vars_files:
+     - variables.yml
+  tasks:
+     - debug: msg="Hello {{your_name}} from {{location}}"
+

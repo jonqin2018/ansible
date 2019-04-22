@@ -1,0 +1,5 @@
+---             
+your_name: Joe
+location: Calgary
+ansible_user: jon
+ansible_password: jon
