@@ -1,0 +1,10 @@
+---
+- hosts: nodes 
+  vars:
+   var1: ‘global var1 in playbook’
+                                                                                                   
+  tasks:
+    - debug: msg="Hello {{ your_name }}, this is the{{ var1}} "
+      vars:
+       your_name: joe
+
