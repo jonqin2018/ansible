@@ -1,0 +1,14 @@
+[web_centos5]
+server.example.com
+
+[web_centos6]
+web[1:3].example.com
+web[A:D].example.com
+
+[database_centos6]
+db.example.com
+
+[server_team:children]
+web_centos5
+web_centos6
+

@@ -1,0 +1,9 @@
+---
+- name:  Example yaml playbook
+  hosts: localhost
+  vars:
+     ansible_user: jon
+  tasks:
+    - name: ping localhost
+      ping:
+
