@@ -1,0 +1,6 @@
+---
+ - hosts: nodes
+
+   tasks:
+     - debug: 
+         msg: group variable on playbook level demo

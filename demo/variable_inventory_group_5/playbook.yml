@@ -1,0 +1,6 @@
+---
+ - hosts: nodes
+
+   tasks:
+      - debug:
+          msg: demo group vars on inventory level

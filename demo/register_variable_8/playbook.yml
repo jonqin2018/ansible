@@ -1,0 +1,9 @@
+---
+ - hosts: localhost
+
+   tasks:
+      - stat: path=/etc/hosts
+        register: output
+
+      - debug: var=output
+           

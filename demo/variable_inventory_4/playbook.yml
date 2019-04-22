@@ -1,0 +1,7 @@
+---
+
+- hosts: localhost
+
+  tasks:
+     - debug: 
+         msg: host variable on inventory level demo

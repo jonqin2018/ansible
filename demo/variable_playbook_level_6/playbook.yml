@@ -1,0 +1,6 @@
+---
+ - hosts: localhost
+
+   tasks:
+      - debug: 
+          msg: demo variable on playbook level 
