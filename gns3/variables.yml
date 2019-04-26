@@ -1,0 +1,4 @@
+ansible_user: admin
+ansible_password: admin
+ansible_network_os: ios
+host_key_auto_add: yes

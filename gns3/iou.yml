@@ -1,0 +1,47 @@
+---
+  - name: lab iou1 lab yml
+    hosts: iou 
+    gather_facts: no
+    connection: network_cli
+    strategy: free     
+    vars:
+       contents: "{{ lookup( 'file', 'iou_config') }} "  
+       #target_user: "admin"
+       #target_host: "10.1.0.1"
+       host_key_auto_add: yes
+
+    vars_files:
+       variables.yml
+
+    tasks: 
+
+     - name: configure
+       cli_command: 
+          command: "{{ item }} " 
+       register: command_output
+       with_items:
+           - "{{ contents }}"
+
+     - name: WAIT FOR ROUTER TO RETURN
+       wait_for_connection:
+          delay: 180 
+          timeout: 300
+       delegate_to: localhost        
+
+     - meta: reset_connection
+
+     - name: config loopback interface2
+       cli_command:
+          command:  "{{ item }} "
+             
+       loop:
+         - configure t
+         - interface loop 2
+         - ip add 2.2.2.2 255.255.255.255 
+         - end
+         - wr mem
+
+       register: command_output
+
+     - debug: var=command_output 
+       
